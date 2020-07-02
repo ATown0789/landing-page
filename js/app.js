@@ -21,6 +21,8 @@
 const sectionList = document.querySelectorAll('section');
 const scrollButton = document.getElementById('scroll__top');
 let prevScrollPos = window.pageYOffset;
+let menuTimer;
+const nav = document.getElementsByTagName('nav')[0];
 
 /**
  * End Global Variables
@@ -36,6 +38,13 @@ const isNearTop = (section) => {
 	);
 };
 
+const hideNav = () => {
+	nav.style.top = '-60px';
+}
+
+const showNav = () => {
+	nav.style.top = '0';
+}
 
 
 /**
@@ -47,8 +56,8 @@ const isNearTop = (section) => {
 
 //hide/show nav on scroll down/up
 
-const hideNav = () => {
-	const nav = document.getElementsByTagName('nav')[0];
+/*const hideNav = () => {
+	
 		let curScrollPos = window.pageYOffset;
 		if (prevScrollPos > curScrollPos) {
 			nav.style.top = '0';
@@ -56,6 +65,15 @@ const hideNav = () => {
 			nav.style.top = '-60px';
 		}
 		prevScrollPos = curScrollPos;
+}*/
+
+//Show nav on scroll, hide when not scrolling after 2 seconds
+
+const navScroll = () => {
+	const nav = document.getElementsByTagName('nav')[0];
+    clearTimeout(menuTimer);
+    showNav();
+    menuTimer = setTimeout(hideNav, 2000);
 }
 
 // build the nav
@@ -96,7 +114,7 @@ const setActive = () => {
 
 // Scroll to anchor ID using scrollTO event
 
-const handleClick = (e) => {
+const scrollToSection = (e) => {
 	event.preventDefault();
 	//make sure click is on a nav element
 	if(e.target.tagName === 'LI' || e.target.tagName === 'A'){
@@ -141,7 +159,7 @@ const scrollClick = () => {
 navBuild();
 
 // Scroll to section on link click
-document.getElementsByTagName('nav')[0].addEventListener('click', handleClick);
+document.getElementsByTagName('nav')[0].addEventListener('click', scrollToSection);
 
 // Scroll top on scroll__top click
 scrollButton.addEventListener('click', scrollClick)
@@ -152,6 +170,6 @@ show scroll top button */
 
 window.addEventListener('scroll', () => {
 	setActive();
-	hideNav();
+	navScroll();
 	scrollTop();
 });

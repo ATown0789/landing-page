@@ -1,13 +1,24 @@
 # Landing Page Project
 
-## Table of Contents
+## Description
 
-* [Instructions](#instructions)
+A project to practice the manipulation of the DOM through vanilla JavaScript.
 
-## Instructions
+## Prerequisite
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+These files should run without any other dependencies
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Installation
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+You can either clone or fork this repository to your local machine.
+For step by step instruction on how to do so check out these links
+
+* [Cloning a repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+* [Forking a repository] (https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
+
+## Runtime Environment
+Any modern web browser
+
+##Acknowledgements
+
+* Udacity's html and css structure
